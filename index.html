@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>禁漫天堂</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <link rel="stylesheet" href="main.css">
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/waifu-project/18comic/app.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="app" class="main">
+    <h1>{{ appName }}</h1>
+    <div class="content">
+      <div class="content-top">
+        <h2>第三方app</h2>
+        <ul class="list">
+          <li @click="isScreenhots = true">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" shape-rendering="geometricPrecision" viewBox="0 0 24 24" height="18" width="18" style="color:currentColor"><path d="M13 17l5-5-5-5M6 17l5-5-5-5"></path></svg>
+            使用截图
+          </li>
+          <!-- <li>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" shape-rendering="geometricPrecision" viewBox="0 0 24 24" height="18" width="18" style="color:currentColor"><path d="M13 17l5-5-5-5M6 17l5-5-5-5"></path></svg>
+            使用说明
+          </li> -->
+          <li @click="openDownloadLink">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" shape-rendering="geometricPrecision" viewBox="0 0 24 24" height="18" width="18" style="color:currentColor"><path d="M13 17l5-5-5-5M6 17l5-5-5-5"></path></svg>
+            下载地址
+          </li>
+          <li @click="openGithub">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" shape-rendering="geometricPrecision" viewBox="0 0 24 24" height="18" width="18" style="color:currentColor"><path d="M13 17l5-5-5-5M6 17l5-5-5-5"></path></svg>
+            开源地址
+          </li>
+        </ul>
+        <p>
+          <img :src="logoSrc" />
+        </p>
+      </div>
+    </div>
+    <p class="footer">
+      {{ copyRightText }}
+    </p>
+    <div class="screenhots" v-if="isScreenhots">
+      <div id="close" @click="isScreenhots = false">关闭</div>
+      <p class="item" v-for="(item, index) in screenshots" :key="index">
+        <img :src="item.pic" /> <br/>
+        <span style="font-size: 2rem; color: red;">{{ item.txt }}</span>
+      </p>
+    </div>
+  </div>
+</body>
+<script src="main.js"></script>
+
+</html>
